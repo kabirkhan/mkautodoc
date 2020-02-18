@@ -114,7 +114,7 @@ def trim_docstring(docstring: typing.Optional[str]) -> str:
         trimmed.pop(0)
 
     # Return a single string:
-    return "\n".join(trimmed)
+    return "\n".join(trimmed[:trimmed.index('### Parameters')]) + "\n\n".join(trimmed[trimmed.index('### Parameters'):])
 
 
 class AutoDocProcessor(BlockProcessor):
